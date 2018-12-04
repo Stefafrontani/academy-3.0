@@ -3,10 +3,18 @@ import InputWithDatalist from "../../components/InputWithDatalist/InputWithDatal
 import WeatherCards from "../../components/WeatherCards/WeatherCards.js";
 import "./Home.css";
 
+const datalist = [
+    "Buenos Aires",
+    "Tucuman",
+    "Formosa",
+    "La Pampa",
+    "Entre Rios"
+];
+
 const Home = () => {
     return (
         <main className="home">
-            <InputWithDatalist />
+            <InputWithDatalist datalist={datalist} placeholder="Location..." />
             <WeatherCards />
         </main>
     );
