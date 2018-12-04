@@ -13,10 +13,17 @@ const datalist = [
 ];
 
 const Analytics = () => {
+    const dataset = [];
+    for (let i = 0; i < 23; i += 1) {
+        dataset.push({
+            x: `${i + 1}A`,
+            y: Math.floor(Math.random() * 1000) + 200
+        });
+    }
     return (
         <main className="analytics">
             <InputWithDatalist datalist={datalist} placeholder="Property..." />
-            <GraphCard />
+            <GraphCard dataset={dataset} />
         </main>
     );
 };
