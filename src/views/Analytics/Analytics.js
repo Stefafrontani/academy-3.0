@@ -1,5 +1,6 @@
 import React from "react";
 import { Bar } from "ant-design-pro/lib/Charts";
+import "./Analytics.css";
 
 const salesData = [];
 for (let i = 0; i < 23; i += 1) {
@@ -10,7 +11,11 @@ for (let i = 0; i < 23; i += 1) {
 }
 
 const Analytics = () => {
-    return <Bar height={200} title="Humedad" data={salesData} />;
+    return (
+        <main className="analytics">
+            <Bar height={200} title="Humedad" data={salesData} />
+        </main>
+    );
 };
 
 export default Analytics;

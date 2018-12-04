@@ -14,6 +14,7 @@ header {
 a {
     text-decoration: none;
     color: white;
+    transition: color 0.3s ease;
 }
 
 .selected {
@@ -32,7 +33,6 @@ ul li {
 ul li::before {
     color: white;
     content: "|";
-    padding: 0 20px 0 0;
 }
 
 ul li:first-of-type::before {
@@ -40,5 +40,5 @@ ul li:first-of-type::before {
 }
 
 ul li a {
-    padding: 0 10px 0 0;
+    padding: 0 20px;
 }
