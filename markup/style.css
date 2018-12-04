@@ -63,6 +63,7 @@ main {
     display: flex;
     width: 100vw;
     justify-content: space-around;
+    align-items: center;
 }
 
 .location {
@@ -93,6 +94,8 @@ article {
     justify-content: space-around;
     align-items: center;
     font-size: 36px;
+    position: relative;
+    transition: all 0.3s ease;
 }
 
 .hidden {
@@ -100,15 +103,19 @@ article {
     font-size: 24px;
 }
 
-.opened {
+article:hover {
     width: 560px;
     height: 560px;
+    padding: 20px;
     align-items: flex-start;
 }
 
-.opened > .temperature {
-    align-self: flex-end;
-    margin-top: -200px;
+article:hover .temperature {
+    position: absolute;
+    right: 80px;
+    top: 45%;
+    transform: translateY(-50%);
+    height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -119,13 +126,17 @@ article {
     font-style: italic;
 }
 
-.opened > img {
+article:hover img {
     height: 250px;
     width: 250px;
 }
 
-.opened > .hidden {
+article:hover .hidden {
     display: inline;
+}
+
+article:hover .description {
+    opacity: 1;
 }
 
 .temperature {
@@ -148,10 +159,14 @@ article {
 
 img {
     display: block;
+    transition: width 0.5s ease, height 0.5s ease 0.1s;
 }
 
 .description {
     font-size: 18px;
+    padding: 0 0 0 20px;
+    opacity: 0;
+    transition: opacity 1s ease 1s;
 }
 
 .toast {
@@ -174,7 +189,7 @@ img {
     justify-content: center;
 }
 
-.toast > img {
+.toast img {
     margin: 0 10px 0 0;
 }
 
