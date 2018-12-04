@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Location from "../Location/Location.js";
 import Header from "../Header/Header.js";
+import Home from "../../views/Home/Home.js";
 import "./App.css";
 
 class App extends Component {
@@ -8,7 +8,7 @@ class App extends Component {
         return (
             <div className="App">
                 <Header />
-                <Location />
+                <Home />
             </div>
         );
     }
