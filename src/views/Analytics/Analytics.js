@@ -12,22 +12,52 @@ const datalist = [
     "Presión"
 ];
 
-const Analytics = ({ provinces }) => {
-    const dataset = [];
-    const property = "humidity";
-    for (let province of provinces) {
-        dataset.push({
-            x: province.province.slice(0, 10),
-            y: province[property]
-        });
+function propertyMap(prop) {
+    switch (prop) {
+        case "Humedad":
+            return "humidity";
+        case "Visibilidad":
+            return "visibility";
+        case "Sensación Térmica":
+            return "thermalSensation";
+        case "Temperatura":
+            return "temp";
+        case "Presión":
+            return "pressure";
+        default:
+            break;
     }
-    return (
-        <main className="analytics">
-            <SelectWithDatalist datalist={datalist} placeholder="Property..." />
-            <GraphCard dataset={dataset} title={property} />
-        </main>
-    );
-};
+}
+
+class Analytics extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleOnChange = this.handleOnChange.bind(this);
+        this.state = { property: "Humedad" };
+    }
+    handleOnChange(ev) {
+        this.setState({ property: ev.target.value });
+    }
+    render() {
+        const dataset = [];
+        for (let province of this.props.provinces) {
+            dataset.push({
+                x: province.province.slice(0, 10),
+                y: province[propertyMap(this.state.property)]
+            });
+        }
+        return (
+            <main className="analytics">
+                <SelectWithDatalist
+                    datalist={datalist}
+                    placeholder="Property..."
+                    onChange={this.handleOnChange}
+                />
+                <GraphCard dataset={dataset} title={this.state.property} />
+            </main>
+        );
+    }
+}
 
 function mapStateToProps(state) {
     return {
