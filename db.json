@@ -63,7 +63,7 @@
             "update": "12:30:00"
         }
     ],
-    "forecast/0": [
+    "forecast0": [
         {
             "_id": "5c07ad5b59879ccdbf0b1d1e",
             "dist": 3.93,
@@ -4643,7 +4643,7 @@
             }
         }
     ],
-    "forecast/1": [
+    "forecast1": [
         {
             "_id": "5c07ad5bcc250c0367c30a83",
             "dist": 20.55,
@@ -9097,7 +9097,7 @@
             }
         }
     ],
-    "forecast/2": [
+    "forecast2": [
         {
             "_id": "5c07ad5b59879ccdbf0b1d20",
             "dist": 3.93,
