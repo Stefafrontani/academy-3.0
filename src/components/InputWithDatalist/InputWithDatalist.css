@@ -1,0 +1,15 @@
+.input-with-datalist {
+    border: 4px #646464 solid;
+    background-color: white;
+    box-sizing: border-box;
+    font-size: 36px;
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+}
+
+.input-container {
+    text-align: center;
+}

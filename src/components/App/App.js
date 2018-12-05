@@ -1,23 +1,17 @@
-import React, { Component } from 'react';
-import Location from '../Location/Location.js';
-import './App.css';
+import React, { Component } from "react";
+import Header from "../Header/Header.js";
+import Routing from "../../routing.jsx";
+import "./App.css";
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        <Location />
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div className="App">
+                <Header />
+                <Routing />
+            </div>
+        );
+    }
 }
 
 export default App;
