@@ -1,16 +1,15 @@
 import React from "react";
 import GraphCard from "../../components/GraphCard/GraphCard.js";
-import InputWithDatalist from "../../components/InputWithDatalist/InputWithDatalist.js";
 import { connect } from "react-redux";
 import "./Analytics.css";
+import SelectWithDatalist from "../../components/SelectWithDatalist/SelectWithDatalist.js";
 
 const datalist = [
     "Humedad",
     "Visibilidad",
     "Sensación Térmica",
-    "Temperatura Promedio",
-    "Temperatura Máxima",
-    "Temperatura Mínima"
+    "Temperatura",
+    "Presión"
 ];
 
 const Analytics = ({ provinces }) => {
@@ -24,8 +23,8 @@ const Analytics = ({ provinces }) => {
     }
     return (
         <main className="analytics">
-            <InputWithDatalist datalist={datalist} placeholder="Property..." />
-            <GraphCard dataset={dataset} />
+            <SelectWithDatalist datalist={datalist} placeholder="Property..." />
+            <GraphCard dataset={dataset} title={property} />
         </main>
     );
 };
