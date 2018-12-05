@@ -2,11 +2,10 @@ import React from "react";
 import "./InputWithDatalist.css";
 
 const InputWithDatalist = ({ placeholder, datalist, getWeatherCards }) => {
-
-    const handleInput = (e) => {
-      const location = e.target.value;
-      getWeatherCards(location);
-    }
+    const handleInput = e => {
+        const location = e.target.value;
+        getWeatherCards(location.slice(0, location.indexOf(",")));
+    };
     return (
         <div className="input-container">
             <input
