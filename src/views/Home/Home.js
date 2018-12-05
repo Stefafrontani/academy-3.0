@@ -1,5 +1,5 @@
 import React from "react";
-import InputWithDatalist from "../../components/InputWithDatalist/InputWithDatalist.js";
+import InputWithDatalist from "../../components/InputWithDatalist/index.js";
 import WeatherCards from "../../components/WeatherCards/WeatherCards.js";
 import Toast from "../../components/Toast/Toast.js";
 import "./Home.css";
