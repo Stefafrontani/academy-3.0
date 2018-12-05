@@ -1,6 +1,7 @@
 import React from "react";
 import GraphCard from "../../components/GraphCard/GraphCard.js";
 import InputWithDatalist from "../../components/InputWithDatalist/InputWithDatalist.js";
+import { connect } from "react-redux";
 import "./Analytics.css";
 
 const datalist = [
@@ -12,12 +13,13 @@ const datalist = [
     "Temperatura Mínima"
 ];
 
-const Analytics = () => {
+const Analytics = ({ provinces }) => {
     const dataset = [];
-    for (let i = 0; i < 23; i += 1) {
+    const property = "humidity";
+    for (let province of provinces) {
         dataset.push({
-            x: `${i + 1}A`,
-            y: Math.floor(Math.random() * 1000) + 200
+            x: province.province.slice(0, 10),
+            y: province[property]
         });
     }
     return (
@@ -28,4 +30,10 @@ const Analytics = () => {
     );
 };
 
-export default Analytics;
+function mapStateToProps(state) {
+    return {
+        provinces: state.provinces.provinces
+    };
+}
+
+export default connect(mapStateToProps)(Analytics);
