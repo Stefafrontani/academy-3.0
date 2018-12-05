@@ -1,3 +1,17 @@
+function getIcon(string) {
+    if (
+        string.includes("precipitacion") ||
+        string.includes("tormenta") ||
+        string.includes("chaparron")
+    )
+        return "./assets/images/drop.svg";
+    if (string.includes("soleado") || string.includes("despejado"))
+        return "./assets/images/sunny.svg";
+    if (string.includes("nublado") || string.includes("nubosidad"))
+        return "./assets/images/cloud.svg";
+    return "./assets/images/warning.svg";
+}
+
 const setWeatherCards = payload => ({
     type: "SET_WEATHERCARDS",
     payload: payload
@@ -34,7 +48,9 @@ const getWeatherCards = location => dispatch => {
                         "Sábado"
                     ][currentDate.getDay()],
                     date: currentDate.toLocaleDateString(),
-                    icon: "./assets/images/drop.svg",
+                    icon: getIcon(
+                        element.morning_desc + element.afternoon_desc
+                    ),
                     tempMin: Math.min(
                         element.morning_temp,
                         element.afternoon_temp
