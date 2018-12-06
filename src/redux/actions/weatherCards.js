@@ -1,15 +1,24 @@
+import { CLOUD, SUN, RAIN, WARNING } from "../../commons/constants";
+
 function getIcon(message) {
     if (
-        message.includes("precipitacion") ||
-        message.includes("tormenta") ||
-        message.includes("chaparron")
+        message.toLowerCase().includes("precipitacion") ||
+        message.toLowerCase().includes("tormenta") ||
+        message.toLowerCase().includes("lluvia") ||
+        message.toLowerCase().includes("chaparron")
     )
-        return "./assets/images/drop.svg";
-    if (message.includes("soleado") || message.includes("despejado"))
-        return "./assets/images/sunny.svg";
-    if (message.includes("nublado") || message.includes("nubosidad"))
-        return "./assets/images/cloud.svg";
-    return "./assets/images/warning.svg";
+        return RAIN;
+    if (
+        message.toLowerCase().includes("nublado") ||
+        message.toLowerCase().includes("nubosidad")
+    )
+        return CLOUD;
+    if (
+        message.toLowerCase().includes("soleado") ||
+        message.toLowerCase().includes("despejado")
+    )
+        return SUN;
+    return WARNING;
 }
 
 const setWeatherCards = payload => ({
