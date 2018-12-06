@@ -61,7 +61,7 @@ const getWeatherCards = location => dispatch => {
                     afternoonDesc: element.afternoon_desc
                 };
             });
-            setTimeout(() => {dispatch(isFetching(false))}, 500)
+            setTimeout(() => {dispatch(isFetching(false))}, 1000)
             dispatch(handleError({status: false, message: ''}))
             dispatch(setWeatherCards(weatherCard));
         })

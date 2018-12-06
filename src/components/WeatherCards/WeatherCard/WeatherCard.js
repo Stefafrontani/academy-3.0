@@ -35,7 +35,9 @@ class WeatherCard extends Component {
     } = this.props
       return (
         <article onMouseEnter={this.animateOn} onMouseLeave={this.animateOut} className="article" id="article">
-        <h2 className="day"> {day} </h2>
+        <h2 className="day"> {day}</h2>
+        
+        <p className="date"> {date} </p>
         <div className="img-cont">
           <img
               src={icon} 
