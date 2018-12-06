@@ -5,15 +5,12 @@ import "./Toast.css";
 const Toast = ({ toastShow, toastIcon, toastMessage }) => {
     return (
         <div
-            className={`toast_container${toastShow ? " container_show_toast":""}`}
+            className={`toast_container${
+                toastShow ? " container_show_toast" : ""
+            }`}
         >
             <div className="toast">
-                <img
-                    height="32"
-                    width="32"
-                    src={toastIcon}
-                    alt="Warning"
-                />
+                <img height="32" width="32" src={toastIcon} alt="Warning" />
                 <span>{toastMessage}</span>
             </div>
         </div>
@@ -22,9 +19,9 @@ const Toast = ({ toastShow, toastIcon, toastMessage }) => {
 
 function mapStateToProps(state) {
     return {
-      toastShow: state.toast.toastShow,
-      toastIcon: state.toast.toastIcon,
-      toastMessage: state.toast.toastMessage
+        toastShow: state.toast.toastShow,
+        toastIcon: state.toast.toastIcon,
+        toastMessage: state.toast.toastMessage
     };
 }
 
