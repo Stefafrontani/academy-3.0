@@ -18,6 +18,7 @@ class Analytics extends React.Component {
     }
 
     componentWillMount() {
+        console.log(getProvinces);
         getProvinces();
     }
 
