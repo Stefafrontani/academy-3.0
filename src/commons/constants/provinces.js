@@ -214,7 +214,7 @@ const PROVINCES_INITIAL_STATE = {
             thermalSensation: 1.775,
             visibility: 12.3125,
             windSpeed: 18.75,
-            pressure: 1003.65
+            pressure: 0
         }
     ]
 };

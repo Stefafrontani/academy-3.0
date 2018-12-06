@@ -1,35 +1,11 @@
 import {
-    CLOUD,
-    SUN,
-    RAIN,
-    WARNING,
     FETCH_DAY0,
     FETCH_DAY1,
     FETCH_DAY2,
     DAYS,
     SET_WEATHERCARDS
 } from "../../commons/constants";
-
-function getIcon(message) {
-    if (
-        message.toLowerCase().includes("precipitacion") ||
-        message.toLowerCase().includes("tormenta") ||
-        message.toLowerCase().includes("lluvia") ||
-        message.toLowerCase().includes("chaparron")
-    )
-        return RAIN;
-    if (
-        message.toLowerCase().includes("nublado") ||
-        message.toLowerCase().includes("nubosidad")
-    )
-        return CLOUD;
-    if (
-        message.toLowerCase().includes("soleado") ||
-        message.toLowerCase().includes("despejado")
-    )
-        return SUN;
-    return WARNING;
-}
+import { getIcon } from "../../commons/functions";
 
 const setWeatherCards = payload => ({
     type: SET_WEATHERCARDS,

@@ -5,6 +5,7 @@ const setProvinces = payload => ({
     payload: payload
 });
 const getProvinces = () => dispatch => {
+    console.log("a");
     fetch(FETCH_WEATHER)
         .then(response => response.json())
         .then(response => {
