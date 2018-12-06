@@ -6,7 +6,8 @@ import {
     FETCH_DAY0,
     FETCH_DAY1,
     FETCH_DAY2,
-    DAYS
+    DAYS,
+    SET_WEATHERCARDS
 } from "../../commons/constants";
 
 function getIcon(message) {
@@ -31,7 +32,7 @@ function getIcon(message) {
 }
 
 const setWeatherCards = payload => ({
-    type: "SET_WEATHERCARDS",
+    type: SET_WEATHERCARDS,
     payload: payload
 });
 const getWeatherCards = location => dispatch => {

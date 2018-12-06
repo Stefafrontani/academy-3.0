@@ -1,18 +1,18 @@
-const initialState = {
-    toastShow: true,
-    toastIcon: "./assets/images/warning.svg",
-    toastMessage: "Fuertes tormentas al sur de la capital federal"
-};
+import {
+    TOAST_SHOW,
+    TOAST_HIDE,
+    TOAST_INITIAL_STATE
+} from "../../commons/constants";
 
-const toast = (state = initialState, action) => {
+const toast = (state = TOAST_INITIAL_STATE, action) => {
     switch (action.type) {
-        case "TOAST_SHOW":
+        case TOAST_SHOW:
             return Object.assign({}, state, {
                 toastShow: true,
                 toastMessage: action.payload.msg,
                 toastIcon: action.payload.icon
             });
-        case "TOAST_HIDE":
+        case TOAST_HIDE:
             return Object.assign({}, state, {
                 toastShow: false,
                 toastMessage: ""
