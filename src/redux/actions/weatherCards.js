@@ -3,20 +3,34 @@ import {
     FETCH_DAY1,
     FETCH_DAY2,
     DAYS,
-    SET_WEATHERCARDS
+    SET_WEATHERCARDS,
+    IS_FETCHING,
+    HANDLE_ERROR
 } from "../../commons/constants";
 import { getIcon } from "../../commons/functions";
+
+const isFetching = payload => ({
+  type: IS_FETCHING,
+  payload: payload
+})
+
+const handleError = payload => ({
+  type: HANDLE_ERROR,
+  payload: payload
+})
 
 const setWeatherCards = payload => ({
     type: SET_WEATHERCARDS,
     payload: payload
 });
+
 const getWeatherCards = location => dispatch => {
+    dispatch(isFetching(true));
     Promise.all(
         [FETCH_DAY0, FETCH_DAY1, FETCH_DAY2].map(el =>
             fetch(el).then(function(res) {
                 if (!res.ok) {
-                    throw new Error();
+                    throw new Error(`Error ${res.status} with endpoint ${el}`);
                 }
                 return res.json();
             })
@@ -26,7 +40,7 @@ const getWeatherCards = location => dispatch => {
             const weatherCard = response.map((currentDay, index) => {
                 const element = currentDay.filter(el => el.name === location)[0]
                     .weather;
-                if (element === undefined) throw new Error("Zone not found");
+                if (element === undefined) throw new Error("Zone not found!");
                 const currentDate = new Date();
                 currentDate.setDate(currentDate.getDate() + index);
                 return {
@@ -47,10 +61,13 @@ const getWeatherCards = location => dispatch => {
                     afternoonDesc: element.afternoon_desc
                 };
             });
+            setTimeout(() => {dispatch(isFetching(false))}, 500)
+            dispatch(handleError({status: false, message: ''}))
             dispatch(setWeatherCards(weatherCard));
         })
         .catch(error => {
-            throw error;
+          dispatch(isFetching(false))
+          dispatch(handleError({status: true, message: error.message}))
         });
 };
 
