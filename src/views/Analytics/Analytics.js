@@ -3,14 +3,7 @@ import GraphCard from "../../components/GraphCard/GraphCard.js";
 import { connect } from "react-redux";
 import "./Analytics.css";
 import SelectWithDatalist from "../../components/SelectWithDatalist/SelectWithDatalist.js";
-
-const datalist = [
-    "Humedad",
-    "Visibilidad",
-    "Sensación Térmica",
-    "Temperatura",
-    "Presión"
-];
+import { PROPERTIES } from "../../commons/constants";
 
 function propertyMap(prop) {
     switch (prop) {
@@ -49,7 +42,7 @@ class Analytics extends React.Component {
         return (
             <main className="analytics">
                 <SelectWithDatalist
-                    datalist={datalist}
+                    datalist={PROPERTIES}
                     placeholder="Property..."
                     onChange={this.handleOnChange}
                 />

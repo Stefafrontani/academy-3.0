@@ -1,10 +1,12 @@
 import React from "react";
 import "./InputWithDatalist.css";
+import { ZONES } from "../../commons/constants";
 
 const InputWithDatalist = ({ placeholder, datalist, getWeatherCards }) => {
     const handleInput = e => {
         const location = e.target.value;
-        getWeatherCards(location.slice(0, location.indexOf(",")));
+        if (ZONES.includes(location))
+            getWeatherCards(location.slice(0, location.indexOf(",")));
     };
     return (
         <div className="input-container">
