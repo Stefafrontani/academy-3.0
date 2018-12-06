@@ -34,7 +34,7 @@ const getWeatherCards = location => dispatch => {
             const weatherCard = response.map((currentDay, index) => {
                 const element = currentDay.filter(el => el.name === location)[0]
                     .weather;
-                if (element === undefined) return {};
+                if (element === undefined) throw new Error("Zone not found");
                 const currentDate = new Date();
                 currentDate.setDate(currentDate.getDate() + index);
                 return {
