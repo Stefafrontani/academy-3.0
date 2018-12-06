@@ -1,7 +1,7 @@
-import { FETCH_WEATHER } from "../../commons/constants";
+import { FETCH_WEATHER, SET_PROVINCES } from "../../commons/constants";
 
 const setProvinces = payload => ({
-    type: "SET_PROVINCES",
+    type: SET_PROVINCES,
     payload: payload
 });
 const getProvinces = () => dispatch => {
