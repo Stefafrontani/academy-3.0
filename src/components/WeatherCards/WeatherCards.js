@@ -17,6 +17,6 @@ function mapStateToProps(state) {
     return {
         weatherCards: state.weatherCards.weatherCards
     };
-};
+}
 
 export default connect(mapStateToProps)(WeatherCards);
