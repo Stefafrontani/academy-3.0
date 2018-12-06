@@ -227,4 +227,14 @@ const PROPERTIES = [
     "Presión"
 ];
 
-export { ZONES, PROPERTIES };
+const DAYS = [
+    "Domingo",
+    "Lunes",
+    "Martes",
+    "Miércoles",
+    "Jueves",
+    "Viernes",
+    "Sábado"
+];
+
+export { ZONES, PROPERTIES, DAYS };
