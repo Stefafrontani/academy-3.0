@@ -2,10 +2,13 @@ import { WARNING } from "./";
 
 const TOAST_SHOW = "TOAST_SHOW";
 const TOAST_HIDE = "TOAST_HIDE";
+const GET_ALERTS = "GET_ALERTS";
+const SET_ALERTS = "SET_ALERTS";
 const TOAST_INITIAL_STATE = {
-    toastShow: true,
+    toastShow: false,
     toastIcon: WARNING,
-    toastMessage: "Fuertes tormentas al sur de la capital federal"
+    toastMessage: "Fuertes tormentas al sur de la capital federal",
+    alerts: []
 };
 
-export { TOAST_SHOW, TOAST_HIDE, TOAST_INITIAL_STATE };
+export { TOAST_SHOW, TOAST_HIDE, GET_ALERTS, SET_ALERTS, TOAST_INITIAL_STATE };

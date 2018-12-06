@@ -2,21 +2,19 @@ import React from "react";
 import { connect } from "react-redux";
 import "./Toast.css";
 
-const Toast = ({ store }) => {
+const Toast = ({ toastShow, toastIcon, toastMessage }) => {
     return (
         <div
-            className={
-                store.toastShow ? "container_show_toast" : "toast_container"
-            }
+            className={`toast_container${toastShow ? " container_show_toast":""}`}
         >
             <div className="toast">
                 <img
                     height="32"
                     width="32"
-                    src={store.toastIcon}
+                    src={toastIcon}
                     alt="Warning"
                 />
-                <span>{store.toastMessage}</span>
+                <span>{toastMessage}</span>
             </div>
         </div>
     );
@@ -24,7 +22,9 @@ const Toast = ({ store }) => {
 
 function mapStateToProps(state) {
     return {
-        store: state.toast
+      toastShow: state.toast.toastShow,
+      toastIcon: state.toast.toastIcon,
+      toastMessage: state.toast.toastMessage
     };
 }
 
