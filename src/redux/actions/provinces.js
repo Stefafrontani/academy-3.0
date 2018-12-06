@@ -1,9 +1,11 @@
+import { FETCH_WEATHER } from "../../commons/constants";
+
 const setProvinces = payload => ({
     type: "SET_PROVINCES",
     payload: payload
 });
 const getProvinces = () => dispatch => {
-    fetch("http://localhost:4000/weather")
+    fetch(FETCH_WEATHER)
         .then(response => response.json())
         .then(response => {
             const provinces = response.reduce((accumulated, actual) => {
