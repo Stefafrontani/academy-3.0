@@ -10,14 +10,14 @@ import {
 import { getIcon } from "../../commons/functions";
 
 const isFetching = payload => ({
-  type: IS_FETCHING,
-  payload: payload
-})
+    type: IS_FETCHING,
+    payload: payload
+});
 
 const handleError = payload => ({
-  type: HANDLE_ERROR,
-  payload: payload
-})
+    type: HANDLE_ERROR,
+    payload: payload
+});
 
 const setWeatherCards = payload => ({
     type: SET_WEATHERCARDS,
@@ -38,9 +38,9 @@ const getWeatherCards = location => dispatch => {
     )
         .then(function(response) {
             const weatherCard = response.map((currentDay, index) => {
+                if (!currentDay.some(el => el.name === location)) return {};
                 const element = currentDay.filter(el => el.name === location)[0]
                     .weather;
-                if (element === undefined) throw new Error("Zone not found!");
                 const currentDate = new Date();
                 currentDate.setDate(currentDate.getDate() + index);
                 return {
@@ -61,13 +61,15 @@ const getWeatherCards = location => dispatch => {
                     afternoonDesc: element.afternoon_desc
                 };
             });
-            setTimeout(() => {dispatch(isFetching(false))}, 1000)
-            dispatch(handleError({status: false, message: ''}))
+            setTimeout(() => {
+                dispatch(isFetching(false));
+            }, 1000);
+            dispatch(handleError({ status: false, message: "" }));
             dispatch(setWeatherCards(weatherCard));
         })
         .catch(error => {
-          dispatch(isFetching(false))
-          dispatch(handleError({status: true, message: error.message}))
+            dispatch(isFetching(false));
+            dispatch(handleError({ status: true, message: error.message }));
         });
 };
 

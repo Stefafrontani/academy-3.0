@@ -4,7 +4,7 @@ import WeatherCards from "../../components/WeatherCards/WeatherCards.js";
 import Toast from "../../components/Toast/Toast.js";
 import { ZONES, WARNING } from "../../commons/constants/";
 import { connect } from "react-redux";
-import { toastHide, toastShow } from "../../redux/actions";
+import { toastHide, toastShow, getWeatherCards } from "../../redux/actions";
 import "./Home.css";
 
 class Home extends Component {
@@ -15,6 +15,7 @@ class Home extends Component {
             timeoutShow: 0
         };
         this.showMessages = this.showMessages.bind(this);
+        this.props.getWeatherCards("Capital Federal");
     }
     showMessages(arr) {
         const { toastShow, toastHide } = this.props;
@@ -59,7 +60,10 @@ class Home extends Component {
     render() {
         return (
             <main className="home">
-                <InputWithDatalist datalist={ZONES} placeholder="Location..." />
+                <InputWithDatalist
+                    datalist={ZONES}
+                    placeholder="Capital Federal, Capital Federal"
+                />
                 <WeatherCards />
                 <Toast />
             </main>
@@ -69,7 +73,8 @@ class Home extends Component {
 
 const mapDispatchToProps = {
     toastHide,
-    toastShow
+    toastShow,
+    getWeatherCards
 };
 
 function mapStateToProps(state) {
