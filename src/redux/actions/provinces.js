@@ -1,7 +1,8 @@
 import {
     FETCH_WEATHER,
     SET_PROVINCES,
-    IS_FETCHING
+    IS_FETCHING,
+    WEATHER_FETCH_DELAY
 } from "../../commons/constants";
 
 const setProvinces = payload => ({
@@ -65,7 +66,7 @@ const getProvinces = () => dispatch => {
                 )
             );
 
-            setTimeout(() => dispatch(isFetching(false)), 1000);
+            setTimeout(() => dispatch(isFetching(false)), WEATHER_FETCH_DELAY);
         })
         .catch(error => {
             dispatch(isFetching(false));

@@ -5,7 +5,8 @@ import {
     DAYS,
     SET_WEATHERCARDS,
     IS_FETCHING,
-    HANDLE_ERROR
+    HANDLE_ERROR,
+    FORECAST_FETCH_DELAY
 } from "../../commons/constants";
 import { getIcon } from "../../commons/functions";
 
@@ -63,7 +64,7 @@ const getWeatherCards = location => dispatch => {
             });
             setTimeout(() => {
                 dispatch(isFetching(false));
-            }, 1000);
+            }, FORECAST_FETCH_DELAY);
             dispatch(handleError({ status: false, message: "" }));
             dispatch(setWeatherCards(weatherCard));
         })
