@@ -127,6 +127,10 @@ article:hover {
     transition: all var(--card-time-in) ease var(--card-time-delay-in);
 }
 
+.article__warning {
+    pointer-events: none;
+}
+
 .day {
     display: inline;
     position: relative;
@@ -135,29 +139,31 @@ article:hover {
     transform: translate(-50%, 0);
     font-size: 36px;
     font-weight: 500;
-    transition: all var(--card-title-time-out) ease var(--card-title-time-delay-out);
+    transition: all var(--card-title-time-out) ease
+        var(--card-title-time-delay-out);
 }
 
 article:hover .day {
     left: 15%;
-    transition: all var(--card-title-time-in) ease var(--card-title-time-delay-in);
+    transition: all var(--card-title-time-in) ease
+        var(--card-title-time-delay-in);
 }
 
 .date {
-  opacity: 0;
-  position:absolute;
-  padding: 20px;
-  top: 2%;
-  right: 5%;
-  font-size: 24px;
-  font-style: italic;
-  transition: all 0.4s ease var(--card-title-time-delay-in);
+    opacity: 0;
+    position: absolute;
+    padding: 20px;
+    top: 2%;
+    right: 5%;
+    font-size: 24px;
+    font-style: italic;
+    transition: all 0.4s ease var(--card-title-time-delay-in);
 }
 article:hover .date {
-  opacity: 1;
-  top: 2%;
-  right: 5%;
-  transition: all 1s ease var(--card-title-time-delay-in);
+    opacity: 1;
+    top: 2%;
+    right: 5%;
+    transition: all 1s ease var(--card-title-time-delay-in);
 }
 
 .img-cont {

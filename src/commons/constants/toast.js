@@ -7,7 +7,7 @@ const SET_ALERTS = "SET_ALERTS";
 const TOAST_INITIAL_STATE = {
     toastShow: false,
     toastIcon: WARNING,
-    toastMessage: "Fuertes tormentas al sur de la capital federal",
+    toastMessage: "",
     alerts: []
 };
 
