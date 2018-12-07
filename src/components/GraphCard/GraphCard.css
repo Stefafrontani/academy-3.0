@@ -16,3 +16,9 @@
     font-size: 36px;
     font-weight: normal;
 }
+
+.graphCard__description {
+    text-align: right;
+    font-style: italic;
+    font-size: 16px;
+}

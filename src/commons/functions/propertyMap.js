@@ -10,6 +10,8 @@ function propertyMap(prop) {
             return "temp";
         case "Presión":
             return "pressure";
+        case "Velocidad del Viento":
+            return "windSpeed";
         default:
             break;
     }

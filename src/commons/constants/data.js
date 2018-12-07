@@ -222,9 +222,10 @@ const ZONES = [
 const PROPERTIES = [
     "Humedad",
     "Visibilidad",
-    "Sensación Térmica",
+    "Velocidad del Viento",
     "Temperatura",
-    "Presión"
+    "Presión",
+    "Sensación Térmica"
 ];
 
 const DAYS = [
