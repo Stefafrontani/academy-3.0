@@ -1,6 +1,7 @@
 import {
     PROVINCES_INITIAL_STATE,
-    SET_PROVINCES
+    SET_PROVINCES,
+    IS_FETCHING
 } from "../../commons/constants";
 
 const provinces = (state = PROVINCES_INITIAL_STATE, action) => {
@@ -8,6 +9,10 @@ const provinces = (state = PROVINCES_INITIAL_STATE, action) => {
         case SET_PROVINCES:
             return Object.assign({}, state, {
                 provinces: action.payload
+            });
+        case IS_FETCHING:
+            return Object.assign({}, state, {
+                isFetching: action.payload
             });
         default:
             return state;

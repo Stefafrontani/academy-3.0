@@ -1,10 +1,19 @@
-import { FETCH_WEATHER, SET_PROVINCES } from "../../commons/constants";
+import {
+    FETCH_WEATHER,
+    SET_PROVINCES,
+    IS_FETCHING
+} from "../../commons/constants";
 
 const setProvinces = payload => ({
     type: SET_PROVINCES,
     payload: payload
 });
+const isFetching = payload => ({
+    type: IS_FETCHING,
+    payload: payload
+});
 const getProvinces = () => dispatch => {
+    dispatch(isFetching(true));
     fetch(FETCH_WEATHER)
         .then(response => response.json())
         .then(response => {
@@ -55,8 +64,11 @@ const getProvinces = () => dispatch => {
                     })
                 )
             );
+
+            setTimeout(() => dispatch(isFetching(false)), 1000);
         })
         .catch(error => {
+            dispatch(isFetching(false));
             throw error;
         });
 };

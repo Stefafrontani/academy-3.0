@@ -3,9 +3,10 @@ import { Bar } from "ant-design-pro/lib/Charts";
 import "./GraphCard.css";
 import { Loader } from "../../commons/components";
 import { propertyMapToDescription } from "../../commons/functions";
+import { connect } from "react-redux";
 
-const GraphCard = ({ dataset, title }) => {
-    return dataset.length === 0 ? (
+const GraphCard = ({ dataset, title, isFetching }) => {
+    return isFetching ? (
         <div className="container">
             <Loader />
         </div>
@@ -20,4 +21,10 @@ const GraphCard = ({ dataset, title }) => {
     );
 };
 
-export default GraphCard;
+function mapStateToProps(state) {
+    return {
+        isFetching: state.provinces.isFetching
+    };
+}
+
+export default connect(mapStateToProps)(GraphCard);
