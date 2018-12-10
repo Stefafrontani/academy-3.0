@@ -40,7 +40,7 @@ const getWeatherCards = location => dispatch => {
         .then(function(response) {
             const weatherCard = response.map((currentDay, index) => {
                 if (!currentDay.some(el => el.name === location)) return {};
-                const element = currentDay.filter(el => el.name === location)[0]
+                const element = currentDay.find(el => el.name === location)
                     .weather;
                 const currentDate = new Date();
                 currentDate.setDate(currentDate.getDate() + index);

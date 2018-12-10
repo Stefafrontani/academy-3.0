@@ -20,9 +20,9 @@ const getProvinces = () => dispatch => {
         .then(response => {
             const provinces = response.reduce((accumulated, actual) => {
                 if (accumulated.some(el => el.province === actual.province)) {
-                    const modifiedProvince = accumulated.filter(
+                    const modifiedProvince = accumulated.find(
                         el => el.province === actual.province
-                    )[0];
+                    );
                     modifiedProvince.prom += 1;
                     modifiedProvince.temp += actual.weather.temp;
                     modifiedProvince.humidity += actual.weather.humidity;
