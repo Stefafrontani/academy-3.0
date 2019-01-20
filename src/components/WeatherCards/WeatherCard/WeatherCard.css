@@ -25,6 +25,7 @@
     --card-special-time-delay-out: 0s;
 }
 
+<<<<<<< HEAD
 header {
     background-color: #636363;
     height: 60px;
@@ -102,6 +103,8 @@ select {
     text-align: center;
 }
 
+=======
+>>>>>>> e3eadc3e10e1c9531639ed363264746011ae83db
 article {
     position: relative;
     border: 4px #646464 solid;

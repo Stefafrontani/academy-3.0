@@ -2,13 +2,12 @@ import {
     FETCH_DAY0,
     FETCH_DAY1,
     FETCH_DAY2,
-    DAYS,
     SET_WEATHERCARDS,
     IS_FETCHING,
     HANDLE_ERROR,
     FORECAST_FETCH_DELAY
 } from "../../commons/constants";
-import { getIcon } from "../../commons/functions";
+import { getIcon, getDay, getDate } from "../../commons/functions";
 
 const isFetching = payload => ({
     type: IS_FETCHING,
@@ -40,26 +39,20 @@ const getWeatherCards = location => dispatch => {
         .then(function(response) {
             const weatherCards = response.map((currentDay, index) => {
                 if (!currentDay.some(el => el.name === location)) return {};
-                const element = currentDay.filter(el => el.name === location)[0]
-                    .weather;
-                const currentDate = new Date();
-                currentDate.setDate(currentDate.getDate() + index);
+                const {
+                    morning_desc,
+                    afternoon_desc,
+                    morning_temp,
+                    afternoon_temp
+                } = currentDay.find(el => el.name === location).weather;
                 return {
-                    day: DAYS[currentDate.getDay()],
-                    date: currentDate.toLocaleDateString(),
-                    icon: getIcon(
-                        element.morning_desc + element.afternoon_desc
-                    ),
-                    tempMin: Math.min(
-                        element.morning_temp,
-                        element.afternoon_temp
-                    ),
-                    tempMax: Math.max(
-                        element.morning_temp,
-                        element.afternoon_temp
-                    ),
-                    morningDesc: element.morning_desc,
-                    afternoonDesc: element.afternoon_desc
+                    day: getDay(index),
+                    date: getDate(index),
+                    icon: getIcon(morning_desc + afternoon_desc),
+                    tempMin: Math.min(morning_temp, afternoon_temp),
+                    tempMax: Math.max(morning_temp, afternoon_temp),
+                    morningDesc: morning_desc,
+                    afternoonDesc: afternoon_desc
                 };
             });
             setTimeout(() => {
