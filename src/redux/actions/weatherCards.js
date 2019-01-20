@@ -38,7 +38,7 @@ const getWeatherCards = location => dispatch => {
         )
     )
         .then(function(response) {
-            const weatherCard = response.map((currentDay, index) => {
+            const weatherCards = response.map((currentDay, index) => {
                 if (!currentDay.some(el => el.name === location)) return {};
                 const element = currentDay.filter(el => el.name === location)[0]
                     .weather;
@@ -66,7 +66,7 @@ const getWeatherCards = location => dispatch => {
                 dispatch(isFetching(false));
             }, FORECAST_FETCH_DELAY);
             dispatch(handleError({ status: false, message: "" }));
-            dispatch(setWeatherCards(weatherCard));
+            dispatch(setWeatherCards(weatherCards));
         })
         .catch(error => {
             dispatch(isFetching(false));

@@ -18,27 +18,27 @@ class Home extends Component {
         this.props.getWeatherCards("Capital Federal");
     }
     showMessages(arr) {
-        const { toastShow, toastHide } = this.props;
-        if (arr.length !== 0) {
-            toastShow({ msg: arr[0], icon: WARNING });
-            if (arr.slice(1).length !== 0) {
-                this.setState({
-                    timeoutHide: setTimeout(() => {
-                        toastHide();
-                        this.setState({
-                            timeoutShow: setTimeout(
-                                () => this.showMessages(arr.slice(1)),
-                                2000
-                            )
-                        });
-                    }, 5000)
-                });
-            } else {
-                this.setState({
-                    timeoutHide: setTimeout(() => toastHide(), 5000)
-                });
-            }
-        }
+      const { toastShow, toastHide } = this.props;
+      if (arr.length !== 0) {
+          toastShow({ msg: arr[0], icon: WARNING });
+          if (arr.slice(1).length !== 0) {
+              this.setState({
+                  timeoutHide: setTimeout(() => {
+                      toastHide();
+                      this.setState({
+                          timeoutShow: setTimeout(
+                              () => this.showMessages(arr.slice(1)),
+                              2000
+                          )
+                      });
+                  }, 5000)
+              });
+          } else {
+              this.setState({
+                  timeoutHide: setTimeout(() => toastHide(), 5000)
+              });
+          }
+      } 
     }
     componentWillUnmount() {
         clearTimeout(this.state.timeoutHide);
@@ -52,8 +52,8 @@ class Home extends Component {
 
     componentDidUpdate(prevProps) {
         if (prevProps.alerts !== this.props.alerts) {
-            const { alerts } = this.props;
-            this.showMessages(alerts);
+          const { alerts } = this.props;
+          this.showMessages(alerts);
         }
     }
 

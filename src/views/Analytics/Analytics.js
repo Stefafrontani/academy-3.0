@@ -29,7 +29,7 @@ class Analytics extends React.Component {
             dataset.push({
                 x: province.province.slice(0, 10),
                 y: province[propertyMap(property)]
-            });
+            });   
         }
         return (
             <main className="analytics">

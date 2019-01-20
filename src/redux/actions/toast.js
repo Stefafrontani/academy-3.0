@@ -20,12 +20,7 @@ const getAlerts = () => dispatch => {
             dispatch(
                 setAlerts(
                     res.map(alert => {
-                        return `${alert.title}: ${[
-                            ...Object.values(alert.zones)
-                        ].reduce(
-                            (acc, actual) =>
-                                acc === "" ? actual : acc + ", " + actual,
-                            ""
+                        return `${alert.title}: ${Object.values(alert.zones).reduce((acc, actual) =>acc === "" ? actual : acc + ", " + actual,""
                         )}`;
                     })
                 )

@@ -5,8 +5,7 @@ import "./Toast.css";
 const Toast = ({ toastShow, toastIcon, toastMessage }) => {
     return (
         <div
-            className={`toast_container${
-                toastShow ? " container_show_toast" : ""
+            className={`toast_container${toastShow ? " container_show_toast" : ""
             }`}
         >
             <div className="toast">
